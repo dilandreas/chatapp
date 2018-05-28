@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat App using PHP and Vuejs</title>
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<style type="text/css">
+		body{
+			width: 80%;
+			margin:10% auto;
+			font-family: sans-serif;
+
+		}
+		textarea{
+			width: 99%;
+			overflow: hidden;
+		}
+		.chat-message{
+			padding: 10px;
+
+		}
+		.username{
+			font-weight: 800;
+			padding-bottom: 5px;
+		}
+		.username, .time{
+			font-size: 0.8rem;
+		}
+		.message{
+			white-space: pre-wrap;
+		}
+	</style>
+</head>
+<body>
+	<div class="chat-box" id="app">
+		<h1>Chat App using PHP and Vuejs</h1>
+		<input type="text" placeholder="Your name" v-model="username">
+		<hr>
+		<div class="chat-lists">
+			<div class="chat-message" v-for="chat in chats">
+				<div class="username"> {{chat.username}}
+					<span class="time">{{chat.time}}</span>
+				</div>
+				<div class="message">{{chat.message}}</div>
+				
+			</div>
+		</div>
+		<div class="chat-input">
+			<textarea name="chat-box" rows="8" v-model="chatInput" @keydown="sendMessage">
+				
+			</textarea>
+		</div>
+	</div>
+<script src="main.js" type="text/javascript"></script>
+</body>
+</html>
